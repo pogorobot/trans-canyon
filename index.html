@@ -10884,17 +10884,18 @@ Elm.Main.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var textAt = F2(function (_p0,model) {
+   var textAt = function (_p0) {
       var _p1 = _p0;
       return _U.cmp(_p1._0,_p1._1) < 0 ? "Fix the world." : "Now.";
-   });
+   };
+   var textOf = function (model) {    return textAt(model.focus);};
    var picture = function (model) {
       return A3($Graphics$Element.image,
       3504,
       2554,
       A2($Basics._op["++"],
       "Trans Canyon ",
-      A2($Basics._op["++"],$Basics.toString(model),".jpg")));
+      A2($Basics._op["++"],$Basics.toString(model.scene),".jpg")));
    };
    var view = F2(function (address,model) {
       return $Html.fromElement(A3($Graphics$Collage.collage,
@@ -10903,45 +10904,67 @@ Elm.Main.make = function (_elm) {
       _U.list([$Graphics$Collage.toForm(picture(model))
               ,A2($Graphics$Collage.scale,
               10,
-              $Graphics$Collage.toForm($Graphics$Element.show(A2(textAt,
-              {ctor: "_Tuple2",_0: 0,_1: 1},
-              model))))])));
+              $Graphics$Collage.toForm($Graphics$Element.show(textOf(model))))])));
    });
+   var spotlight = F2(function (_p2,model) {
+      var _p3 = _p2;
+      return _U.update(model,
+      {focus: {ctor: "_Tuple2",_0: _p3._0,_1: _p3._1}});
+   });
+   var lastScene = 5;
    var progress = function (model) {
-      return _U.cmp(model,5) < 0 ? model + 1 : model;
+      return _U.cmp(model.scene,lastScene) < 0 ? _U.update(model,
+      {scene: model.scene + 1}) : model;
    };
    var update = F2(function (action,model) {
-      var _p2 = action;
-      if (_p2.ctor === "NoOp") {
-            return model;
-         } else {
-            return progress(model);
-         }
+      var _p4 = action;
+      switch (_p4.ctor)
+      {case "NoOp": return model;
+         case "Progress": return progress(model);
+         default: return A2(spotlight,_p4._0,model);}
    });
+   var Spotlight = function (a) {
+      return {ctor: "Spotlight",_0: a};
+   };
+   var arrowMapper = function (_p5) {
+      var _p6 = _p5;
+      return Spotlight({ctor: "_Tuple2",_0: _p6._0,_1: _p6._1});
+   };
    var Progress = {ctor: "Progress"};
    var clickMapper = function (click) {    return Progress;};
-   var progressOnClick = A2($Signal.map,clickMapper,$Mouse.clicks);
+   var progressOnClick = A2($Signal.merge,
+   A2($Signal.map,clickMapper,$Mouse.clicks),
+   A2($Signal.map,arrowMapper,$Mouse.position));
    var actions = progressOnClick;
    var NoOp = {ctor: "NoOp"};
    var actionMailbox = $Signal.mailbox(NoOp);
    var address = actionMailbox.address;
-   var init = 1;
+   var init = {scene: 1,focus: {ctor: "_Tuple2",_0: 0,_1: 0}};
    var main = A2($Signal.map,
    view(address),
    A3($Signal.foldp,update,init,actions));
+   var Model = F2(function (a,b) {
+      return {scene: a,focus: b};
+   });
    return _elm.Main.values = {_op: _op
+                             ,Model: Model
                              ,init: init
                              ,NoOp: NoOp
                              ,Progress: Progress
+                             ,Spotlight: Spotlight
                              ,update: update
                              ,progress: progress
+                             ,lastScene: lastScene
+                             ,spotlight: spotlight
                              ,actionMailbox: actionMailbox
                              ,address: address
                              ,actions: actions
                              ,progressOnClick: progressOnClick
                              ,clickMapper: clickMapper
+                             ,arrowMapper: arrowMapper
                              ,view: view
                              ,picture: picture
+                             ,textOf: textOf
                              ,textAt: textAt
                              ,main: main};
 };</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script></body></html>
