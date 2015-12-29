@@ -33,14 +33,14 @@ update action model =
 
 progress : Model -> Model
 progress model =
-  if model.scene < lastScene then
+  if (model |> canProgress) then
     { model | scene = model.scene + 1 }
   else
     model
 
-lastScene : Int
-lastScene =
-  5
+canProgress : Model -> Bool
+canProgress model =
+  model.scene < 5
 
 spotlight : (Int, Int) -> Model -> Model
 spotlight (x, y) model =
@@ -74,13 +74,28 @@ arrowMapper (x, y) =
 
 --VIEW
 
+width : Float
+width =
+  3504
+
+height : Float
+height =
+  2554
+
 view : Address Action -> Model -> Html
 view address model =
-  collage 3504 2554
+  collage (floor width) (ceiling height)
     [ (model |> picture |> toForm)
-    , (model |> textOf |> show |> toForm |> scale 10)
+    , (model |> textOf |> show |> toForm |> scale 10 |> hover model.focus)
     ]
   |> fromElement
+
+
+toElmCoordinates : (Int, Int) -> (Float, Float)
+toElmCoordinates (x, y) =
+  ( (toFloat x) - width / 2
+  , height / 2 - (toFloat y)
+  )
 
 picture : Model -> Element
 picture model =
@@ -96,6 +111,12 @@ textAt (x, y) =
     "Fix the world."
   else
     "Now."
+
+hover : (Int, Int) -> Form -> Form
+hover (x, y) =
+  (x, y)
+  |> toElmCoordinates
+  |> move
 
 --MAIN
 
