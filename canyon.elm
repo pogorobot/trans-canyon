@@ -2,6 +2,7 @@
 import Html exposing (..)
 import Signal exposing (..)
 import Graphics.Element exposing (..)
+import Mouse
 
 --MODEL
 
@@ -20,7 +21,14 @@ update : Action -> Model -> Model
 update action model =
   case action of
     NoOp -> model
-    Progress -> model + 1
+    Progress -> progress model
+
+progress : Model -> Model
+progress model =
+  if model < 5 then
+    model + 1
+  else
+    model
 
 
 actionMailbox : Mailbox Action
@@ -33,7 +41,15 @@ address =
 
 actions : Signal Action
 actions =
-  actionMailbox.signal
+  progressOnClick
+
+progressOnClick : Signal Action
+progressOnClick =
+  Signal.map clickMapper Mouse.clicks
+
+clickMapper : () -> Action
+clickMapper click =
+  Progress
 
 --VIEW
 
