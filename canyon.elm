@@ -2,6 +2,7 @@
 import Html exposing (..)
 import Signal exposing (..)
 import Graphics.Element exposing (..)
+import Graphics.Collage exposing (..)
 import Mouse
 
 --MODEL
@@ -55,8 +56,22 @@ clickMapper click =
 
 view : Address Action -> Model -> Html
 view address model =
-  image 3504 2554 ("Trans Canyon " ++ (toString model) ++ ".jpg")
+  collage 3504 2554
+    [ (model |> picture |> toForm)
+    , (model |> textAt (0, 1) |> show |> toForm |> scale 10)
+    ]
   |> fromElement
+
+picture : Model -> Element
+picture model =
+    image 3504 2554 ("Trans Canyon " ++ (toString model) ++ ".jpg")
+
+textAt : (Int, Int) -> Model -> String
+textAt (x, y) model =
+  if x < y then
+    "Fix the world."
+  else
+    "Now."
 
 --MAIN
 

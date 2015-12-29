@@ -10875,6 +10875,7 @@ Elm.Main.make = function (_elm) {
    var _U = Elm.Native.Utils.make(_elm),
    $Basics = Elm.Basics.make(_elm),
    $Debug = Elm.Debug.make(_elm),
+   $Graphics$Collage = Elm.Graphics.Collage.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
    $Html = Elm.Html.make(_elm),
    $List = Elm.List.make(_elm),
@@ -10883,20 +10884,35 @@ Elm.Main.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var view = F2(function (address,model) {
-      return $Html.fromElement(A3($Graphics$Element.image,
+   var textAt = F2(function (_p0,model) {
+      var _p1 = _p0;
+      return _U.cmp(_p1._0,_p1._1) < 0 ? "Fix the world." : "Now.";
+   });
+   var picture = function (model) {
+      return A3($Graphics$Element.image,
       3504,
       2554,
       A2($Basics._op["++"],
       "Trans Canyon ",
-      A2($Basics._op["++"],$Basics.toString(model),".jpg"))));
+      A2($Basics._op["++"],$Basics.toString(model),".jpg")));
+   };
+   var view = F2(function (address,model) {
+      return $Html.fromElement(A3($Graphics$Collage.collage,
+      3504,
+      2554,
+      _U.list([$Graphics$Collage.toForm(picture(model))
+              ,A2($Graphics$Collage.scale,
+              10,
+              $Graphics$Collage.toForm($Graphics$Element.show(A2(textAt,
+              {ctor: "_Tuple2",_0: 0,_1: 1},
+              model))))])));
    });
    var progress = function (model) {
       return _U.cmp(model,5) < 0 ? model + 1 : model;
    };
    var update = F2(function (action,model) {
-      var _p0 = action;
-      if (_p0.ctor === "NoOp") {
+      var _p2 = action;
+      if (_p2.ctor === "NoOp") {
             return model;
          } else {
             return progress(model);
@@ -10925,5 +10941,7 @@ Elm.Main.make = function (_elm) {
                              ,progressOnClick: progressOnClick
                              ,clickMapper: clickMapper
                              ,view: view
+                             ,picture: picture
+                             ,textAt: textAt
                              ,main: main};
 };</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script></body></html>
