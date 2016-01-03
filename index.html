@@ -10977,7 +10977,7 @@ Elm.Main.make = function (_elm) {
       50) < 0 && (_U.cmp(_p16,-50) > 0 && _U.cmp(_p17,-50) > 0));
    };
    var canProgress = function (model) {
-      return atTheCenter(model.focus);
+      return _U.eq(textOf(model),defaultString);
    };
    var currentScene = function (model) {
       return A2($Maybe.withDefault,

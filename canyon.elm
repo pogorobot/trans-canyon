@@ -334,7 +334,7 @@ currentTerrain model =
 
 canProgress : Model -> Bool
 canProgress model =
-  model.focus |> atTheCenter
+  textOf model == defaultString
 
 atTheCenter: (Int, Int) -> Bool
 atTheCenter (x, y) =
