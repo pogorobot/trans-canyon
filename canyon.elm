@@ -742,22 +742,30 @@ pageTurn model =
 
 updatedStory : Model -> List Scene
 updatedStory model =
-  List.indexedMap (updatedScene (model.scene) (currentTerrain model)) model.story
+  List.indexedMap (sceneUpdater model) model.story
+
+sceneUpdater : Model -> Int -> Scene -> Scene
+sceneUpdater model =
+  (updatedScene model.scene (currentTerrain model))
 
 updatedScene : Int -> Terrain -> Int -> Scene -> Scene
-updatedScene number terrain index scene =
-  if number == index then
-    List.indexedMap (updatedTerrain terrain) scene
+updatedScene sceneNumber terrain index scene =
+  if (sceneNumber - 1) == index then
+    List.map (updateIfSameTerrain terrain) scene
   else
     scene
 
 
-updatedTerrain : Terrain -> Int -> Terrain -> Terrain
-updatedTerrain reality index candidate =
-  if (List.length candidate.script) == (List.length reality.script) then
+updateIfSameTerrain : Terrain -> Terrain -> Terrain
+updateIfSameTerrain template candidate =
+  if (sameTerrain template candidate) then
     { candidate | line = candidate.line + 1 }
   else
     candidate
+
+sameTerrain : Terrain -> Terrain -> Bool
+sameTerrain template candidate =
+  template.script == candidate.script
 
 
 currentScene : Model -> Scene
