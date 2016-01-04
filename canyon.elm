@@ -43,7 +43,449 @@ canyonStory =
     , theDistance
     , theVoid
     ]
+    
+    ,
+
+    [ treeTwo 
+    , shrubTwo
+    , snowTwo
+    , outcroppingTwo
+    , distanceTwo
+    ]
+
+    ,
+
+    [ treeThree
+    , shrubThree
+    , outcroppingThree
+    , distanceThree
+    ]
+
+    ,
+
+    [ shrubFour
+    , outcroppingFour
+    , distanceFour
+    ]
+
+    , 
+
+    [ distanceFive
+    ]
   ]
+
+distanceFive : Terrain
+distanceFive =
+  { top = round (height / 2)
+  , right = round (width / 2)
+  , left = round (-width / 2)
+  , bottom = round (-height / 2)
+  , script =
+    [ "You still don't know what it is."
+    , "If you listen to your body, you can hear it singing."
+    , "If you listen to your body, you can feel it squirming."
+    , "It you listen to your body, you can want what it wants."
+    , "If you listen to your body, you can exist in space and time."
+    , "If you listen to your body, you can develop a relationship with it."
+    , "If you listen to your body, you can learn about yourself."
+    , "If you listen to your body, you can find your true memories."
+    , "If you listen to your body, you can change."
+    , "If you listen to your body, you can stop changing."
+    , "If you listen to your body, you can move."
+    , "If you listen to your body, you can stop moving."
+    , "If you listen to your body, you can love it."
+    , "If you listen to your body, you can hear that it loves you."
+    , "You listen to your body, you can hear that it loves you."
+    , "Listen to your body, you can hear that it loves you."
+    , "To your body, you can hear that it loves you."
+    , "Your body, you can hear that it loves you."
+    , "Body, you can hear that it loves you."
+    , "You can hear that it loves you."
+    , "Hear that it loves you."
+    , "It loves you."
+    , "I love you."
+    , "I love you."
+    , "I love you."
+    , "I love you."
+    , "I love you."
+    , "I love you."
+    , "I love you."
+    , "I love you?"
+    ]
+  , line = 0
+  }
+
+
+shrubFour : Terrain
+shrubFour =
+  { top = theShrub.top
+  , right = theShrub.right
+  , left = theShrub.left
+  , bottom = theShrub.bottom
+  , script = 
+    [ "Here you are."
+    , "No more defenses."
+    , "Nothing to hold onto."
+    , "What does that make you?"
+    , "Where are your roots now?"
+    , "Where will you find water?"
+    , "Where will you find shelter?"
+    , "Who will love you?"
+    , "Who will protect you?"
+    , "Who will tell you you're not alone?"
+    , "Will you be alone?"
+    , "Will you be forgotten?"
+    , "Will you be crushed?"
+    , "Will you be eaten alive?"
+    , "Will you be treated badly?"
+    , "Will you be taken advantage of?"
+    , "Will you be attacked?"
+    , "Will you be damaged?"
+    , "Will you be frustrated?"
+    , "Will you begin to lose hope?"
+    , "Will you begin to forget what it was like?"
+    , "Will you begin to forget what you need?"
+    , "Will you begin to forget where your body begins and ends?"
+    , "Will you begin to forget who made you this way?"
+    , "Will you begin to forget your own name?"
+    , "What is your name?"
+    ]
+  , line = 0
+  }
+
+outcroppingFour : Terrain
+outcroppingFour =
+  { top = theOutcropping.top
+  , right = theOutcropping.right
+  , left = theOutcropping.left
+  , bottom = theOutcropping.bottom
+  , script = 
+    [ "I'll be going soon."
+    , "There's no more use for me here."
+    , "You've outgrown me."
+    , "I can't say I'm surprised."
+    , "But I am a little sad."
+    , "You see..."
+    , "This whole time I've been pushing you to leave, right?"
+    , "But actually I just wanted you to reassure me."
+    , "I'm going to be sad when you're gone."
+    , "I'm going to be sad when you vanish forever."
+    , "I'm going to be sad when you never call."
+    , "I'm going to be sad when you never write."
+    , "I'm going to be sad when you don't talk about me."
+    , "I'm going to be sad when you don't think about me."
+    , "I'm going to be sad when you remember the pain I caused you."
+    , "I'm going to be sad when you remember me as a villain."
+    , "I wanted to be your friend."
+    , "I wanted to show you what the world was like."
+    , "But you were too afraid."
+    , "Or maybe I was."
+    , "I forget which of us is me, and which is you."
+    , "It doesn't matter now."
+    , "Goodbye."
+  ]
+  , line = 0
+  }
+
+distanceFour : Terrain
+distanceFour =
+  { top = theDistance.top
+  , right = theDistance.right
+  , left = theDistance.left
+  , bottom = theDistance.bottom
+  , script =
+    [ "..."
+    , "....."
+    , "......"
+    , "............."
+    , ".........................."
+    , "You're sure?"
+    , "..........................."
+    , "............"
+    , "Of course you're not sure."
+    , "Who could possibly be sure until they've seen the whole picture?"
+    , "Who could possibly see the whole picture until they've lived it?"
+    , "How can you consent to an abstraction?"
+    , "Your fears are an abstraction."
+    , "Your self is an abstraction."
+    , "Your memories are an abstraction."
+    , "Your attachments are an abstraction."
+    , "Your family is an abstraction."
+    , "Your love is an abstraction."
+    , "Your love is an abstraction."
+    , "Your love is an abstraction."
+    , "Your love is absurd."
+    , "Your love has no basis in reality."
+    , "Your love is meaningless."
+    , "Your love is empty."
+    , "Your love is gone as soon as you leave the room."
+    , "Your love is as deadly as you are."
+    , "Your love is poison."
+    , "Regret yourself."
+    , "Hold the pain of your own existence deep within your heart."
+    , "Experience your own suffering."
+    , "Know how richly, deeply, intensely wrong your whole being is."
+    , "Leap."
+    ]
+  , line = 0
+  }
+
+treeThree : Terrain
+treeThree =
+  { top = theTree.top
+  , right = theTree.right
+  , left = theTree.left
+  , bottom = theTree.bottom
+  , script =
+    [ "Despite everything, the sky is still blue around Blue Sky Tree."
+    , "You remember the first time you saw that tree."
+    , "At least, you think you do."
+    , "Sometimes, when you look back on stuff like that, it kind of blurs."
+    , "Like... like you're not ready to see it all at once."
+    , "But you know how fond you've always been of that blue sky."
+    , "Nothing can take that away."
+    , "Not even a weird green pulsating light that seems to be eating away at the fabric of reality itself."
+    , "Or, like, chainsaws even."
+    , "Chainsaws would just break."
+    , "Air pollution also."
+    , "Yup."
+    , "Blue Sky Tree stands strong, no matter what."
+    , "That's the rules."
+    , "You've always been able to count on this world to behave in a very particular way."
+    , "And, in exchange, the world has made very specific, stable, demands of you."
+    , "If you want to find water, plant your roots exactly here and dig deep."
+    , "Do not more, if you value your life."
+    , "Do not try to be anything more than what you are."
+    , "And, as long as that remains, the blue sky will be there."
+    , "No matter what the weather is, you can always look up to Blue Sky Tree and see blue sky."
+    , "It's going to be important that you remember that."
+    , "You know."
+    , "When........"
+    , "Never mind."
+    ]
+  , line = 0
+  }
+
+shrubThree : Terrain
+shrubThree =
+  { top = theShrub.top
+  , right = theShrub.right
+  , left = theShrub.left
+  , bottom = theShrub.bottom
+  , script =
+    [ "This is you."
+    , "This is you."
+    , "This is you."
+    , "This is you."
+    , "This is you."
+    , "This is you."
+    , "This is you."
+    , "This is you?"
+    ]
+  , line = 0
+  }
+
+outcroppingThree : Terrain
+outcroppingThree =
+  { top = theOutcropping.top
+  , right = theOutcropping.right
+  , left = theOutcropping.left
+  , bottom = theOutcropping.bottom
+  , script =
+    [ "Now or never, friendo."
+    , "There's not much more to see."
+    , "The canyon has been entirely consumed with whatever that glowing green static pretends to be."
+    , "Are you gonna pretend it's not there now?"
+    , "Just like you pretended Trans Canyon wasn't real this whole time?"
+    , "Is that going to be your legacy?"
+    , "Here Lies A Random Shrub"
+    , "It Didn't Particularly Matter To Anyone"
+    ]
+  , line = 0
+  }
+
+distanceThree : Terrain
+distanceThree =
+  { top = theDistance.top
+  , right = theDistance.right
+  , left = theDistance.left
+  , bottom = theDistance.bottom
+  , script =
+    [ "It seems alive, at least."
+    , "Like..."
+    , "There are so many mechanistic horrors in this world."
+    , "Too many."
+    , "This thing..."
+    , "Whatever it is......"
+    , "It seems like it would at least be aware of you, if it had to eat you."
+    , "It's not a grinding-geared capitalist death machine."
+    , "It's not a rock."
+    , "It's some weird lightning and maybe... something purple? idk"
+    , "I mean..."
+    , "Look."
+    , "If things aren't the same after..."
+    , "There's just..."
+    , "You don't have to do this."
+    , "You don't have to keep clicking."
+    , "You can still turn it all back"
+    , "Get the canyon back up in here, go back to the snow, everything."
+    , "You don't have to see where it leads."
+    , "I mean."
+    , "I'm the voice in the darkness that cries out to you"
+    , "I'm the part of you screaming in your ear"
+    , "JUST DO IT"
+    , "TAKE THE LEAP"
+    , "FUCKING DO IT ALREADY"
+    , "YOUR TIME ON THIS EARTH IS PRECIOUS AND FINITE"
+    , "WHAT ARE YOU WAITING FOR"
+    , "MAKE THE LEAP"
+    , "SEE WHAT'S ON THE OTHER SIDE"
+    , "DO IT NOW"
+    , "but"
+    , "like"
+    , "i could be wrong??"
+    , "and ultimately"
+    , "it has to be your choice."
+    , ":)"
+    ]
+  , line = 0
+  }
+
+treeTwo : Terrain
+treeTwo = 
+  { left = theTree.left
+  , top = theTree.top
+  , right = theTree.right
+  , bottom = theTree.bottom
+  , script =
+    [ "At least Blue Sky Tree never falters."
+    , "The sky is always blue around Blue Sky Tree."
+    , "There are no problems here."
+    ]
+  , line = 0
+  }
+
+shrubTwo : Terrain
+shrubTwo =
+  { left = theShrub.left
+  , top = theShrub.top
+  , right = theShrub.right
+  , bottom = theShrub.bottom
+  , script = 
+    [ "What are you now, little shrub?"
+    , "Little bush?"
+    , "Little pipsqueak?"
+    , "What does all your hesitation bring you?"
+    , "What does a lifetime of waiting at the edge of a fabulous outcropping mean now?"
+    , "The cliffs have vanished."
+    , "The canyon is not a canyon."
+    , "The ominous glyphs in the sky have eaten it."
+    , "Maybe they'll eat you next."
+    , "What would you do about it if they did?"
+    , "Probably nothing."
+    , "You're just a shrub."
+    ]
+  , line = 0
+  }
+
+snowTwo : Terrain
+snowTwo =
+  { left = theSnow.left
+  , top = theSnow.top
+  , right = theSnow.right
+  , bottom = theSnow.bottom
+  , script = 
+    [ "It's still snowing."
+    , "It deserves to snow."
+    , "The trees out there deserve to be cold."
+    , "They're probably suffering for something that they did."
+    , "Like, they didn't sing in church or something."
+    , "Or they had sex in the wrong way."
+    , "Maybe they just got used to it snowing all the time."
+    , "Maybe they just decided to put down roots in a place where it always snows"
+    , "and even though they wish it would stop, they can't imagine leaving."
+    , "Maybe they didn't listen to their friends telling them they would always be cold."
+    , "Maybe they wanted to, but they were just too afraid."
+    , "Maybe they were afraid of falling into the abyss."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid of dying."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid of getting rejected."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid they would never put down roots again."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid of never having any friends."
+    , "Maybe they were afraid of being rejected by their family."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid of people abusing them."
+    , "Maybe they were afraid of people mistreating them."
+    , "Maybe they were afraid of falling into Trans Canyon."
+    , "Maybe they were afraid of people being buttheads to them."
+    , "Maybe they were afraid of being buttheads to people."
+    , "Maybe they were afraid of their own butts."
+    , "Maybe they were afraid of their own heads."
+    , "Maybe they were afraid of their own soft spots."
+    , "Maybe they were afraid of their own needs."
+    , "Maybe they were afraid of their own roots."
+    , "Maybe they were afraid of their own branches."
+    , "Maybe they were afraid of their own bodies."
+    , "Maybe they were afraid of their own pain."
+    , "It's still snowing."
+    , "It's cold."
+    ]
+  , line = 0
+  }
+
+outcroppingTwo : Terrain
+outcroppingTwo =
+  { top = theOutcropping.top
+  , right = theOutcropping.right
+  , left = theOutcropping.left
+  , bottom = theOutcropping.bottom
+  , script =
+    [ "You can feel it, can't you?"
+    , "Reality is coming undone."
+    , "The sky it turned to orange, pink, and violet"
+    , "Like it hadn't before."
+    , ";)"
+    , "I'm just kiddin'."
+    , "That's a green sky if I've ever seen one."
+    , "Looks like it's laced with some kinda magic lightning??"
+    , "Actually I don't know if that's even a sky."
+    , "Actually I don't know what's going on."
+    , "Have you considered maybe going to get a closer look?"
+    ]
+  , line = 0
+  }
+
+distanceTwo : Terrain
+distanceTwo = 
+  { top = theDistance.top
+  , right = theDistance.right
+  , left = theDistance.left
+  , bottom = theDistance.bottom
+  , script =
+    [ "You're not sure what you're looking at, but it's definitely in pain."
+    , "Your brain whispers a secret."
+    , "Four is the number of negation."
+    , "Something is trying to dispel an enchantment."
+    , "If the enchantment is dispelled, will you still have your outcropping?"
+    , "Will you still have your friends?"
+    , "Will your parents still love you?"
+    , "Will you ever find a committed relationship?"
+    , "Will you be able to survive on your own?"
+    , "Will you be able to live in the world?"
+    , "Are you going to be okay?"
+    , "Are you going to be okay?"
+    , "Are you going to be okay?"
+    , "Are you going to be okay?"
+    , "Are you going to be okay?"
+    ] 
+  , line = 0
+  }
 
 theTree : Terrain
 theTree =
@@ -294,22 +736,25 @@ progress model =
 
 pageTurn : Model -> Model
 pageTurn model =
-  { model | story = model |> nextLine }
+  { model | story = model |> updatedStory }
 
-nextLine : Model -> List Scene
-nextLine model =
-  List.map (sceneUpdate (currentScene model) (currentTerrain model)) model.story
 
-sceneUpdate : Scene -> Terrain -> Scene -> Scene
-sceneUpdate roots terrain branches =
-  if roots == branches then
-    List.map (terrainUpdate terrain) roots
+
+updatedStory : Model -> List Scene
+updatedStory model =
+  List.indexedMap (updatedScene (model.scene) (currentTerrain model)) model.story
+
+updatedScene : Int -> Terrain -> Int -> Scene -> Scene
+updatedScene number terrain index scene =
+  if number == index then
+    List.indexedMap (updatedTerrain terrain) scene
   else
-    roots
+    scene
 
-terrainUpdate : Terrain -> Terrain -> Terrain
-terrainUpdate candidate reality =
-  if candidate == reality then
+
+updatedTerrain : Terrain -> Int -> Terrain -> Terrain
+updatedTerrain reality index candidate =
+  if (List.length candidate.script) == (List.length reality.script) then
     { candidate | line = candidate.line + 1 }
   else
     candidate
@@ -317,8 +762,8 @@ terrainUpdate candidate reality =
 
 currentScene : Model -> Scene
 currentScene model =
-  model.story 
-  |> List.take model.scene 
+  model.story
+  |> List.drop (model.scene - 1)
   |> List.head
   |> Maybe.withDefault []
 
@@ -407,10 +852,8 @@ picture model =
 
 textOf : Model -> String
 textOf model =
-  model.story 
-  |> List.take model.scene 
-  |> List.head
-  |> Maybe.withDefault []
+  model
+  |> currentScene
   |> (lineAt (toElmCoordinatesInt model.focus))
 
 lineAt : (Int, Int) -> Scene -> String
